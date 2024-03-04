@@ -1,27 +1,55 @@
-# ClientesApp
+# Documentação da Aplicação Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
+Este repositório contém uma aplicação frontend construída com Angular 17 e Bootstrap. Siga os passos abaixo para configurar e executar a aplicação.
 
-## Development server
+## Pré-requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Antes de começar, certifique-se de ter o seguinte instalado em sua máquina:
 
-## Code scaffolding
+- Node.js e npm: Ambiente de execução JavaScript.
+- Angular CLI: Ferramenta de linha de comando para criar e gerenciar projetos Angular.
+- Editor de código: Recomenda-se o Visual Studio Code ou qualquer editor de sua preferência.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Passos para Executar a Aplicação
 
-## Build
+1. Clone o Repositório:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
-## Running unit tests
+2. Navegue até o Diretório da Aplicação:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   cd nome-do-repositorio
 
-## Running end-to-end tests
+3. Instale as Dependências do Projeto:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   npm install
 
-## Further help
+4. Inicie o Servidor de Desenvolvimento:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ng serve
+
+5. Acesse a Aplicação:
+
+   Abra um navegador da web e navegue até http://localhost:4200/. Você verá a aplicação em execução.
+
+## Estrutura do Projeto
+
+A estrutura do projeto é organizada da seguinte forma:
+
+- home: Contém os componentes e recursos relacionados à página inicial da aplicação.
+- layout: Contém componentes e recursos compartilhados entre várias partes da aplicação, como cabeçalhos, rodapés, barras laterais, etc.
+- login: Contém os componentes e recursos relacionados à funcionalidade de login da aplicação.
+- professor: Contém os componentes e recursos relacionados à entidade "professor" da aplicação.
+- template: Contém modelos ou esqueletos de código para serem usados em toda a aplicação.
+
+## Arquivos na Raiz
+
+- app.component: O componente principal da aplicação Angular.
+- app.routes: O arquivo de configuração das rotas da aplicação Angular, que define as rotas e seus respectivos componentes.
+- auth.guard: Um serviço de guarda de rotas para controlar o acesso às rotas da aplicação com base na autenticação do usuário.
+- auth.service: Um serviço responsável pela autenticação de usuários na aplicação.
+- professor.service: Um serviço responsável por fornecer funcionalidades relacionadas à entidade "professor", como recuperar, criar, atualizar e excluir professores.
+
+## Personalização
+
+Você pode personalizar a aplicação conforme necessário, modificando os arquivos na pasta /src. Além disso, você pode adicionar novos componentes, serviços e outros artefatos Angular conforme a lógica do seu projeto.

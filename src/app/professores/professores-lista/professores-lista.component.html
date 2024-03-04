@@ -1,0 +1,89 @@
+<h1 class="mt-4">Professor</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consulta</li>
+</ol>
+<div class="container">
+
+    <div class="row">
+        <div class="cal-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="mensagemSucesso">
+                {{mensagemSucesso}}
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="mensagemErro" >
+                {{mensagemErro}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-success btn-lg " (click)="novoCadastro()">
+                <i class="fa fa-plus"></i> Novo
+            </button>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group d-flex align-items-center">
+                <label for="documentosEntregues" class="mr-2">Documentos Entregues:</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="documentosEntregues" 
+                        [(ngModel)]="documentosEntregues" name="documentosEntregues" 
+                        (change)="onDocumentosEntreguesChange()">
+                    <label class="custom-control-label" for="documentosEntregues"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed table-hover">
+              <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Disciplina</th>
+                    <th>Curso</th>
+                    <th>Titulação</th>
+                    <th>Documentos Entregues</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let professor of professor">
+                    <td>{{ professor.nome }}</td>
+                    <td>{{ professor.idade }}</td>
+                    <td>{{ professor.disciplina }}</td>
+                    <td>{{ professor.curso }}</td>
+                    <td>{{ professor.titulacao }}</td>
+                    <td>{{ professor.documentosEntregues ? 'Sim' : 'Não' }}</td>
+                    <td> 
+                        <button class="btn btn-primary" (click)="editarProfessor(professor.id)"  >
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger " (click)="preparaDelecao(professor)" 
+                        data-toggle="modal" data-target="#modalDelecao" >
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+              </tbody>  
+            </table>
+        </div>
+    </div>
+
+    <div id="modalDelecao" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirmação</h4>
+                </div>
+                <div class="modal-body" *ngIf="professorSelecionado">
+                    Confirma a Exclusão do(a) Professor{{ professorSelecionado.nome}} ?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="deletarProfessor()" data-dismiss="modal" >Confirmar</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
